@@ -2289,40 +2289,31 @@ async def снять_пред(ctx, member: discord.Member):
             await log_channel.send(embed=log_embed_info)
 
 @bot.command()
-async def инвентарь(ctx, member: discord.Member = None):
+async def инв(ctx, member: discord.Member = None):
     target_member = member or ctx.author
     uid = str(target_member.id)
     entry = get_user_data(uid)
     
     if not entry['inventory']:
-        description = 'Инвентарь пуст.'
+        description = 'инвентарь пуст.'
     else:
-        item_counts = f"{}"
+        item_counts = {}
         for item in entry['inventory']:
             item_counts[item] = item_counts.get(item, 0) + 1
         items_list = []
         for item_name, count in item_counts.items():
             emoji = SHOP_ITEMS.get(item_name, {}).get('emoji', '')
-            items_list.append(f'{emoji} {item_name.capitalize()} x{count}')
-        description = '\n'.join(items_list)
-        
+            items_list.append(emoji + " " + item_name.capitalize() + ": " + str(count))
+        description = "\n".join(items_list)
+    
     embed = discord.Embed(
-        title=f'Инвентарь {target_member.display_name}',
+        title="inventory " + target_member.display_name,
         description=description,
         color=discord.Color.purple(),
         timestamp=discord.utils.utcnow()
     )
     embed.set_thumbnail(url=target_member.display_avatar.url)
     await ctx.send(embed=embed)
-    log_channel = ctx.guild.get_channel(LOG_CHANNEL_ID)
-    if log_channel:
-        log_embed = discord.Embed(
-            title='Проверка инвентаря',
-            description=f'{ctx.author.mention} (`{ctx.author.id}`) проверил инвентарь {target_member.mention}.',
-            color=discord.Color.purple(),
-            timestamp=discord.utils.utcnow()
-        )
-        await log_channel.send(embed=log_embed)
 
 
 @bot.command()
