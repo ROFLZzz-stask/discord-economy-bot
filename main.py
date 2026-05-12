@@ -2293,6 +2293,7 @@ async def инвентарь(ctx, member: discord.Member = None):
     target_member = member or ctx.author
     uid = str(target_member.id)
     entry = get_user_data(uid)
+    
     if not entry['inventory']:
         description = 'Инвентарь пуст.'
     else:
@@ -2304,6 +2305,7 @@ async def инвентарь(ctx, member: discord.Member = None):
             emoji = SHOP_ITEMS.get(item_name, {}).get('emoji', '')
             items_list.append(f'{emoji} {item_name.capitalize()} x{count}')
         description = '\n'.join(items_list)
+        
     embed = discord.Embed(
         title=f'Инвентарь {target_member.display_name}',
         description=description,
