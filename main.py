@@ -2297,7 +2297,7 @@ async def инвентарь(ctx, member: discord.Member = None):
     if not entry['inventory']:
         description = 'Инвентарь пуст.'
     else:
-        item_counts = {}
+        item_counts = f"{}"
         for item in entry['inventory']:
             item_counts[item] = item_counts.get(item, 0) + 1
         items_list = []
