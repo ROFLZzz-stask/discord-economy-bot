@@ -1,0 +1,36 @@
+{
+    "1457043915965202483": {
+        "balance": 612,
+        "daily_last": "2026-05-07T11:29:36.699757",
+        "work_last": "2026-05-07T11:31:28.080401",
+        "inventory": [],
+        "xp": 0,
+        "level": 1,
+        "achievements": [],
+        "investments": {},
+        "last_hourly": null,
+        "last_crime": null,
+        "last_hunt": null,
+        "last_fish": null,
+        "last_mine": null,
+        "wins": 0,
+        "losses": 0
+    },
+    "906754719463112764": {
+        "balance": 520,
+        "daily_last": null,
+        "work_last": null,
+        "inventory": [],
+        "xp": 0,
+        "level": 1,
+        "achievements": [],
+        "investments": {},
+        "last_hourly": null,
+        "last_crime": null,
+        "last_hunt": null,
+        "last_fish": null,
+        "last_mine": null,
+        "wins": 0,
+        "losses": 0
+    }
+}

